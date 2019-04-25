@@ -8,8 +8,11 @@ def print_board(board):
 
 print_board(board)
 
-selection = int(input("Select a square: "))
-if selection > 9 or selection < 1:
-    print("Sorry, invalid selection.")
-else:
-    print(selection)
+try:
+    selection = int(input("Select a square: "))
+    if selection > 9 or selection < 1:
+        print("Sorry, please select a number 1-9.")
+    else:
+        print(selection)
+except ValueError:
+    print("Sorry, that's not a number!")
