@@ -10,9 +10,8 @@ print_board(board)
 
 try:
     selection = int(input("Select a square: "))
-    if selection > 9 or selection < 1:
-        print("Sorry, please select a number 1-9.")
-    else:
-        print(selection)
+    if not 1 <= selection <= 9:
+        raise ValueError
+    print(selection)
 except ValueError:
-    print("Sorry, that's not a number!")
+    print("Sorry, please select a number 1-9")
