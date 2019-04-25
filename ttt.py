@@ -7,3 +7,9 @@ def print_board(board):
         print(row)
 
 print_board(board)
+
+selection = int(input("Select a square: "))
+if selection > 9 or selection < 1:
+    print("Sorry, invalid selection.")
+else:
+    print(selection)
