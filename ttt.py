@@ -1,5 +1,10 @@
 # ttt.py
 
+def convert_selection(selection):
+    selection -= 1
+    return (selection // 3, selection % 3)
+
+
 def print_board(board):
     for row in board:
         print(row)
