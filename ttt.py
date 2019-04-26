@@ -1,5 +1,16 @@
 # ttt.py
 
+def main():
+    board = [["_" for _ in range(3)] for _ in range(3)]
+    while True:
+        print_board(board)
+        try:
+            selection = convert_selection(select_square())
+            place_piece(selection, board)
+        except ValueError:
+            print("Sorry, please select a number 1-9")
+
+
 def convert_selection(selection):
     selection -= 1
     return (selection // 3, selection % 3)
@@ -21,10 +32,5 @@ def select_square():
     return selection
 
 
-board = [["_" for _ in range(3)] for _ in range(3)]
-while True:
-    print_board(board)
-    try:
-        place_piece(convert_selection(select_square()), board)
-    except ValueError:
-        print("Sorry, please select a number 1-9")
+if __name__ == "__main__":
+    main()
