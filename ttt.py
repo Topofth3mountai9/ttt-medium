@@ -4,11 +4,10 @@ def main():
     board = [["_" for _ in range(3)] for _ in range(3)]
     is_x = True
     while True:
-        player = "X" if is_x else "O"
         print_board(board)
         try:
             selection = convert_selection(select_square())
-            place_piece(selection, player, board)
+            place_piece(selection, is_x, board)
         except ValueError:
             print("Sorry, please select a number 1-9")
         is_x = not is_x
@@ -19,8 +18,8 @@ def convert_selection(selection):
     return (selection // 3, selection % 3)
 
 
-def place_piece(selection, player, board):
-    board[selection[0]][selection[1]] = player
+def place_piece(selection, is_x, board):
+    board[selection[0]][selection[1]] = "X" if is_x else "O"
 
 
 def print_board(board):
