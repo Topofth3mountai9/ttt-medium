@@ -22,10 +22,10 @@ def select_square():
 
 
 board = [["_" for _ in range(3)] for _ in range(3)]
-print_board(board)
-try:
-    selection = convert_selection(select_square())
-    place_piece(selection, board)
-except ValueError:
-    print("Sorry, please select a number 1-9")
-print_board(board)
+while True:
+    print_board(board)
+    try:
+        selection = convert_selection(select_square())
+        place_piece(selection, board)
+    except ValueError:
+        print("Sorry, please select a number 1-9")
