@@ -22,6 +22,8 @@ def place_piece(selection, is_x, board):
     i, j = selection
     if board[i][j] == "_":
         board[i][j] = "X" if is_x else "O"
+    else:
+        raise ValueError
 
 
 def print_board(board):
