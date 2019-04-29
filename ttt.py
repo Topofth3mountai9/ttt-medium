@@ -19,7 +19,8 @@ def convert_selection(selection):
 
 
 def place_piece(selection, is_x, board):
-    board[selection[0]][selection[1]] = "X" if is_x else "O"
+    if board[selection[0]][selection[1]] == "_":
+        board[selection[0]][selection[1]] = "X" if is_x else "O"
 
 
 def print_board(board):
