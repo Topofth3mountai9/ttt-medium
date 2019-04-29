@@ -9,7 +9,7 @@ def main():
             selection = convert_selection(select_square())
             place_piece(selection, is_x, board)
         except ValueError:
-            print("Sorry, please select a number 1-9")
+            print("Sorry, please select a square 1-9 that is unoccupied.")
         is_x = not is_x
 
 
