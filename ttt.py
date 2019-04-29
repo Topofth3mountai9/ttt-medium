@@ -12,7 +12,7 @@ def main():
         except ValueError:
             print("Sorry, please select a square 1-9 that is unoccupied.")
             continue
-        game_over = is_draw(board)
+        game_over = is_win(board) or is_draw(board)
         is_x = not is_x
 
 
@@ -26,7 +26,32 @@ def is_draw(board):
         for val in row:
             if val == "_":
                 return False
+    print_board(board)
+    print("Draw! No more moves!")
     return True
+
+
+def is_win(board):
+    winner = None
+    for i in range(3):
+        # horizontal
+        if board[i][0] == board[i][1] == board[i][2] and board[i][0] != "_":
+            winner = board[i][0]
+            break
+        # vertical
+        if board[0][i] == board[1][i] == board[2][i] and board[0][i] != "_":
+            winner = board[0][i]
+            break
+    # diagonal
+    if board[1][1] != "_":
+        if (board[0][0] == board[1][1] == board[2][2]
+            or board[0][2] == board[1][1] == board[2][0]):
+            winner = board[1][1]
+    if winner is not None:
+        print_board(board)
+        print(f"{winner} is the winner!")
+        return True
+    return False
 
 
 def place_piece(selection, is_x, board):
